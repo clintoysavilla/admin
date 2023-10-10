@@ -43,7 +43,7 @@ Route::group(['middleware' => 'auth:web'], function () {
     Route::get('/viewrequest/{id}', [StudentDashboardController::class,'viewRequest']);
 
     Route::delete('/deleterequest/{id}', [StudentDashboardController::class,'deleteRequest']);
-    
+
 
     Route::get('/request/certificate', function () {
         return view('student.request-certificate');
@@ -56,7 +56,7 @@ Route::group(['middleware' => 'auth:web'], function () {
     Route::post('/request/certificate', [CertificationRequestController::class,'createNewCertificationRequest']);
 
     // Route::post('/edit-certificate', [StudentDashboardController::class,'editCertificate'])->name('edit-certificate');
-    
+
     Route::get('/schedule/certificate', [CertificationRequestController::class,'showStudentRequestCertification']);
 
     Route::get('/schedule/form137', [Form137Controller::class,'showform137']);
@@ -64,7 +64,7 @@ Route::group(['middleware' => 'auth:web'], function () {
     Route::get('/schedule/goodmoral', [GoodMoralController::class,'showScheduleForGoodMoral']);
     Route::get('/events', [GoodMoralController::class, 'getEvents']);
 
-    
+
 
     // Route::get('', [ ::class, '']);
 
@@ -105,21 +105,21 @@ Route::group(['middleware' => 'auth:teacher'], function () {
 });
 
 
-Route::group(['middleware' => 'auth:admin'], function () {
-    Route::get('/admin', function () {
-        return view('admin.home-admin');
-    });
+// Route::group(['middleware' => 'auth:admin'], function () {
+//     Route::get('/admin', function () {
+//         return view('admin.home-admin');
+//     });
 
-    Route::get('/admin/dashboard', function () {
-        return view('admin.dashboard');
-    });
+//     Route::get('/admin/dashboard', function () {
+//         return view('admin.dashboard');
+//     });
 
-    Route::get('/admin/register',[RegisterController::class,'showAdminRegisterForm'])->name('admin.register-view');
-    Route::post('/admin/register',[RegisterController::class,'createAdmin'])->name('admin.register');
+//     Route::get('/admin/register',[RegisterController::class,'showAdminRegisterForm'])->name('admin.register-view');
+//     Route::post('/admin/register',[RegisterController::class,'createAdmin'])->name('admin.register');
 
-    Route::get('/teacher/register',[RegisterController::class,'showTeacherRegisterForm'])->name('teacher.register-view');
-    Route::post('/teacher/register',[RegisterController::class,'createTeacher'])->name('teacher.register');
-});
+//     Route::get('/teacher/register',[RegisterController::class,'showTeacherRegisterForm'])->name('teacher.register-view');
+//     Route::post('/teacher/register',[RegisterController::class,'createTeacher'])->name('teacher.register');
+// });
 
 
 // Route::get('/admin/register',[RegisterController::class,'showAdminRegisterForm'])->name('admin.register-view');
